@@ -1,1 +1,31 @@
+# Visual Studio (user-specific / cache)
 .vs/
+*.user
+*.suo
+*.VC.db
+*.VC.opendb
+
+# Build outputs (solution/project build artifacts)
+[Bb]in/
+[Ii]ntermediate/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+# Common compiled artifacts
+*.obj
+*.pdb
+*.ilk
+*.idb
+*.exe
+*.dll
+*.lib
+*.exp
+*.log
+
+# CMake (if you ever use it)
+CMakeFiles/
+CMakeCache.txt
+cmake-build-*/
+out/
