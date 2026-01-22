@@ -1,4 +1,7 @@
 ﻿#include <iostream>
+#include <Windows.h>
+#define MYTEXT(value) L##value;
+#define MYTEST(value1, value2) value1##value2;
 
 //클래스 내부에서 문자열 다루기
 class Player
@@ -9,15 +12,15 @@ public:
 	//생성자
 	//객체를 생성할 때 호출 되는 특별한 함수
 	//반환형이 없고, 클래스 이름과 동일
-	Player(const char* inName) 
+	Player(const char* inName)
 	{
 		//문자열 복사
 		//name = inName;
-		
+
 		//1.저장 공간 확보
 		// -> 확보할 공간의 크기를 알아야 함
 		//strlen은 0을 만날때까지의 수를 확인한다 우리는 0문자를 포함해야 되는 크기라서 +1해줘야함
-		size_t length = strlen(inName)+1;
+		size_t length = strlen(inName) + 1;
 		name = new char[length];
 
 		//2. 문자열 복사
@@ -36,10 +39,16 @@ public:
 			name = nullptr; //이렇게 까지 해줘야 좋음
 		}
 	}
+	void Printname() {
+		std::cout << name;
+	}
 
 private:
 	//문자열을 저장할 변수
 	char* name = nullptr;
+
+
+
 };
 
 int main()
@@ -49,13 +58,21 @@ int main()
 	std::cout << testString << "\n";
 
 	//문자 배열도 가능
-	char buffer[6] 
-		= { 'Y','u','j','i','n','\0'};
+	char buffer[6]
+		= { 'Y','u','j','i','n','\0' };
 	std::cout << buffer << "\n";
 
 	//객체 기반으로 문자열 사용
 	Player player("yujin");
 
+	//wide-charcater
+	//const wchar_t* wideString = L"Hello wide String";
+	const wchar_t* wideString = MYTEXT("Hello wide String");
+
+	std::wcout << wideString << TEXT("\n");
+
+	auto test = MYTEST(10, 20);
+	
 
 
 
