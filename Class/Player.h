@@ -11,6 +11,7 @@ public:
     //Player() = default; //명시적으로 더 정확하게 {} 이렇게만 해두면 코드를 덜쓴 느낌이 남
 	//~Player() = default; //소멸자도 마찬가지
 	Player();
+	Player(const char* inName); // 생성자 추가
 	~Player();
 
 	//클래스 조작 함수
@@ -23,4 +24,10 @@ private:
 	int x = 0;
 	int y = 0;
 	int speed = 0;
+
+	//이름 값(문자열)
+	//객체를 만들기 전에 name값에 뭐가 올지 모르기 때문에 힙을 사용
+	//char name[10] = {}; 이렇게도 할 수 있음
+	char* name = nullptr;
+
 }; 
